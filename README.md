@@ -8,5 +8,5 @@ I am using Typekit to load a specific font so that will break if you use it! I'd
 
 ## To do
 
-- [] Move CSS to external stylesheet now that Tumblr supports that.
-- [] Upload custom sized profile image to Tumblr now that Tumblr supports that.
+- [ ] Move CSS to external stylesheet now that Tumblr supports that.
+- [ ] Upload custom sized profile image to Tumblr now that Tumblr supports that.
