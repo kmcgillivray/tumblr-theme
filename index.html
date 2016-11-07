@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>{Title}</title>
+	<link rel="shortcut icon" href="{Favicon}">
+	<meta name="viewport" content="initial-scale=1">
+	<link rel="alternate" type="application/rss+xml" href="{RSS}">
+	{block:Description}
+		<meta name="description" content="{MetaDescription}" />
+	{/block:Description}
+	<script type="text/javascript" src="//use.typekit.net/xzb6hlv.js"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<style type="text/css">
+	body {
+	    padding: 30px;
+	    padding-bottom: 60px;
+	    background-color: #FFF;
+	    font-family: "ff-tisa-web-pro", serif;
+	}
+	.container {
+	    max-width: 980px;
+	}
+	img {
+	    width: auto;
+	    margin-bottom: 1rem;
+	}
+	iframe {
+	    width: 100%;
+	}
+
+	/* Typography */
+	html {
+        font-size: 15px;
+    }
+    @media (min-width: 768px) {
+        html {
+            font-size: 18px;
+        }
+    }
+    body {
+        font-size: 1em;
+        line-height: 1.35;
+        color: #b2aeac;
+    }
+    p {
+        margin-top: 0px;
+        margin-bottom: 1rem;
+    }
+    h1, h2, h3, h4, h5, h6 {
+        margin-top: 1.5rem;
+        margin-bottom: .5rem;
+        font-size: 1rem;
+    }
+    h1 {
+        margin-top: 0px;
+        font-size: 1.4rem;
+    }
+    h2 {
+        font-size: 1.2rem;
+    }
+    a {
+        color: #766f6b;
+        transition: .3s opacity;
+    }
+    a:hover {
+        color: #766f6b;
+        opacity: .7;
+        transition: .3s opacity;
+        text-decoration: none;
+    }
+    ul {
+        padding-left: 20px;
+    }
+    ol {
+        padding-left: 30px;
+    }
+    ul li,
+    ol li {
+        margin-top: 0px;
+        margin-bottom: .75rem;
+    }
+    blockquote {
+        padding-left: .75rem;
+        padding-right: .75rem;
+        font-size: .9rem;
+        line-height: 1.35;
+        border-left: none;
+    }
+    hr {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        border-bottom: 1px solid #E9E9E9;
+        border-top: 0px;
+        border-left: 0px;
+        border-right: 0px;
+        width: 50%;
+    }
+
+    /* Header */
+
+    .header {
+        margin-bottom: 1rem;
+    }
+
+    /* Buttons */
+
+    .btn {
+        background-color: #E7E7E7;
+        font-size: 1rem;
+    }
+
+    /* Post */
+
+    .post {
+	    margin-bottom: 3rem;
+	    padding: 1.5rem;
+	    background-color: #FFF;
+	    -webkit-box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.22);
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.22);
+	    border-radius: 5px;
+	}
+    .meta {
+        margin-top: 1.5rem;
+        font-size: .8rem;
+    }
+
+    /* Quote */
+
+    .quote {
+        font-size: 1.4rem;
+        font-style: italic;
+    }
+    .source {
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        text-align: right;
+        color: #766f6b;
+    }
+
+    /* Photo */
+
+    .highres {
+        width: 100%;
+        height: auto;
+    }
+
+    /* Pagination */
+
+    #next {
+        float: right;
+    }
+
+	</style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-3">
+                <div class="header">
+                    <a href="{BlogURL}"><img src="http://i39.tinypic.com/2rhwpy9.jpg"></a>
+                    {block:Description}
+                    <h1><a href="{BlogURL}">Kevin Schmevin</a></h1>
+			        <p id="description">{Description}</p>
+	        	    {/block:Description}
+	        	    <a href="archive">Archive</a><br>
+	        	    <a href="{RSS}">Subscribe with RSS</a><br>
+	        	    {block:HasPages}
+				    {block:Pages}
+				    <a href="{URL}">{Label}</a><br>
+				    {/block:Pages}
+				    {/block:HasPages}
+				</div>
+            </div>
+
+            <div class="col-sm-9">
+                {block:Posts}
+                <div class="post">
+
+                {block:Quote}
+                    <div class="quote">"{Quote}"</div>
+                    {block:Source}
+					    <div class="source">&mdash;{Source}</div>
+				    {/block:Source}
+                {/block:Quote}
+
+                {block:Text}
+                    {block:Title}
+                    <h3><a href="{Permalink}">{Title}</a></h3>
+                    {/block:Title}
+                    {Body}
+                {/block:Text}
+
+                {block:Photo}
+                    <a href="{Permalink}"><img src="{PhotoURL-500}" alt="{PhotoAlt}" {block:HighRes}style="display: none"{/block:HighRes}></a>
+                    {block:HighRes}
+					<a href="{Permalink}"><img src="{PhotoURL-HighRes}" class="highres"></a>
+				    {/block:HighRes}
+			    	{block:Caption}
+				    	{Caption}
+				    {/block:Caption}
+                {/block:Photo}
+
+                {block:Panorama}
+                    {LinkOpenTag}
+                        <img src="{Photo-URL-Panorama}" alt="{PhotoAlt">
+                    {LinkCloseTag}
+                    {block:Caption}
+                        {Caption}
+                    {/block:Caption}
+                {/block:Panorama}
+
+                {block:Photoset}
+                    {Photoset}
+                    {block:Caption}
+                        {Caption}
+                    {/block:Caption}
+                {/block:Photoset}
+
+                {block:Link}
+                    <a href="{URL}" {Target}>{Name}</a>
+                    {block:Description}
+                        {Description}
+                    {/block:Description}
+                {/block:Link}
+
+                {block:Chat}
+                    {block:Title}
+                        <h3><a href="{Permalink}">{Title}</a></h3>
+                    {/block:Title}
+                    {block:Lines}
+                        {block:Label}
+                            {Label}
+                        {/block:Label}
+                        {Line}<br>
+                    {/block:Lines}
+                {/block:Chat}
+
+                {block:Video}
+                    {Video-700}
+                    {block:Caption}
+                        {Caption}
+                    {/block:Caption}
+                {/block:Video}
+
+                {block:Audio}
+                    {AudioPlayerBlack}
+                    {block:Caption}
+                        {Caption}
+                    {/block:Caption}
+                {/block:Audio}
+
+                <div class="meta">
+                    {block:Date}
+	                <a href="{Permalink}" class="date">{DayOfMonth} {Month} {Year}</a>
+	            {/block:Date} •
+	            <a href="{Permalink}">{NoteCountWithLabel}</a>
+                </div>
+
+                </div>
+                {PostNotes}
+                {/block:Posts}
+            </div>
+        </div>
+    </div>
+	<div class="container">
+	{block:Pagination}{block:PreviousPage}
+            <a class="btn" href="{PreviousPage}" id="previous">&laquo; Previous</a>
+    {/block:PreviousPage}{block:NextPage}
+            <a class="btn" href="{NextPage}" id="next">Next &raquo;</a>
+    {/block:NextPage}{/block:Pagination}
+    </div>
+</body>
+</html>
